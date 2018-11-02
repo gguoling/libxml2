@@ -370,9 +370,8 @@ if(MSVC)
 elseif(NOT APPLE)
 	set_target_properties(xml2 PROPERTIES LINK_FLAGS "-Wl,--version-script=${CMAKE_CURRENT_SOURCE_DIR}/libxml2.syms")
 endif()
-if(CMAKE_SYSTEM_NAME STREQUAL "WindowsPhone")
-	target_compile_options(xml2 PRIVATE "/FIwindowsphone_port.h")
-elseif(CMAKE_SYSTEM_NAME STREQUAL "WindowsStore")
+
+if(CMAKE_SYSTEM_NAME STREQUAL "WindowsStore")
 	target_compile_options(xml2 PRIVATE "/FIuniversal_windows_port.h")
 endif()
 
